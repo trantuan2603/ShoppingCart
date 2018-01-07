@@ -26,15 +26,20 @@
             </android.support.v7.widget.Toolbar>
 
             <ViewFlipper
+                android:background="@android:color/transparent"
                 android:id="@+id/viewflipper"
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
 
             </ViewFlipper>
 
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:layout_margin="2dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -47,7 +52,8 @@
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycleView"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@android:color/white">
 
                 </android.support.v7.widget.RecyclerView>
             </LinearLayout>

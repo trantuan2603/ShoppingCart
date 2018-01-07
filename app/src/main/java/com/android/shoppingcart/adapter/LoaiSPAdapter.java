@@ -69,7 +69,7 @@ public class LoaiSPAdapter extends BaseAdapter {
         LoaiSP loaiSP = loaiSPS.get(i);
         viewHolder.tenLoaisp.setText(loaiSP.getTenloaisanpham());
         Picasso.with(context).load(loaiSP.getHinhloaisanpham())
-                .error(R.mipmap.ic_launcher_round).placeholder(R.mipmap
+                .error(R.drawable.error).placeholder(R.mipmap
                 .ic_launcher_round)
                 .resize(70,70)
                 .into(viewHolder.anhLoaiSP);
