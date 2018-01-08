@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary"
+    android:gravity="center_vertical">
+
+    <ImageButton
+        android:id="@+id/btn_navigation"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_menu_black_24dp"
+        android:tint="@android:color/white" />
+
+    <RelativeLayout
+        android:id="@+id/relative_Layout_search"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center_vertical"
+        android:layout_toRightOf="@id/btn_navigation"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginRight="5dp"
+        >
+
+        <ImageButton
+            android:id="@+id/ImageButtonSearch"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_search_black_24dp" />
+
+        <EditText
+            android:id="@+id/edt_search"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_toLeftOf="@id/ImageButtonClear"
+            android:layout_toRightOf="@id/ImageButtonSearch"
+            android:maxLines="1"
+            android:background="@android:color/transparent"
+            android:hint="search view" />
+
+        <ImageButton
+            android:id="@+id/ImageButtonClear"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_clear_black_24dp"
+
+            />
+    </RelativeLayout>
+
+
+</RelativeLayout>

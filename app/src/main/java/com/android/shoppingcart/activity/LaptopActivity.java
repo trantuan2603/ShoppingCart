@@ -9,7 +9,7 @@ import android.os.Message;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
@@ -154,18 +154,12 @@ public class LaptopActivity extends AppCompatActivity {
 
     private void actionToolbar() {
         setSupportActionBar(toolbar);
-//        getSupportActionBar().setTitle("Điện thoại");
-//        //Không hiện tiêu đề
-//        getSupportActionBar().setDisplayShowTitleEnabled(false);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setLogo(R.drawable.ic_phone_android_black_24dp);
-//        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(false);
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);
-        View customView = getLayoutInflater().inflate(R.layout.main_action_bar, null);
+        View customView = getLayoutInflater().inflate(R.layout.toolbar_laptop, null);
         actionBar.setCustomView(customView);
         Toolbar parent = (Toolbar) customView.getParent();
         parent.setPadding(0, 0, 0, 0);//for tab otherwise give space in tab

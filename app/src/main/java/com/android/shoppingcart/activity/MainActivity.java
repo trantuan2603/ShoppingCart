@@ -2,11 +2,13 @@ package com.android.shoppingcart.activity;
 
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -21,9 +23,12 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -255,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < mangQuangcao.size(); i++) {
             ImageView imageView = new ImageView(getApplicationContext());
             Picasso.with(getApplicationContext()).load(mangQuangcao.get(i)).into(imageView);
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             viewFlipper.addView(imageView);
         }
         viewFlipper.setFlipInterval(6000);
@@ -269,14 +274,42 @@ public class MainActivity extends AppCompatActivity {
 
     private void ActionBar() {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationIcon(android.R.drawable.ic_menu_sort_by_size);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        toolbar.setNavigationIcon(android.R.drawable.ic_menu_sort_by_size);
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                drawerLayout.openDrawer(GravityCompat.START);
+//            }
+//        });
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View customView = inflater.inflate(R.layout.toolbar_activity, null);
+        actionBar.setCustomView(customView);
+        Toolbar parent = (Toolbar) customView.getParent();
+        parent.setPadding(0, 0, 0, 0);//for tab otherwise give space in tab
+        parent.setContentInsetsAbsolute(0, 0);
+        ImageButton homeButton = customView.findViewById(R.id.btn_navigation);
+        EditText search = customView.findViewById(R.id.edt_search);
+        homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void anhXa() {

@@ -7,7 +7,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
@@ -26,7 +25,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -162,7 +160,7 @@ public class SmartPhoneActivity extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(false);
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);
-        View customView = getLayoutInflater().inflate(R.layout.main_action_bar, null);
+        View customView = getLayoutInflater().inflate(R.layout.toolbar_laptop, null);
         actionBar.setCustomView(customView);
         Toolbar parent = (Toolbar) customView.getParent();
         parent.setPadding(0, 0, 0, 0);//for tab otherwise give space in tab
